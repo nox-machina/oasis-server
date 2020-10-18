@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3500;
 
+//-----------ROUTES-----------//
+const users = require('./routes/users');
 
 //-----------middleware-----------//
 app.use(express.json());
@@ -15,9 +17,11 @@ app.use(
     cors({
         credentials: true,
         origin: ['*'],
-        exposedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept']
+        exposedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Access-Control-Allow-Headers']
     })
 );
+
+app.use('/', users);
 
 //-----------DATABASE-----------//
 mongoose.connect(`${process.env.DATABASE}`, {useNewUrlParser:true, useUnifiedTopology: true}, () => {

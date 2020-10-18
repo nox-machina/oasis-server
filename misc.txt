@@ -1,0 +1,19 @@
+    // console.log(req.cookies);
+    // if (!req.cookies.actkn && !req.cookies.rftkn) {
+    //     res.status(401).send({msg: "Login Required!"})
+    // } else if (!req.cookies.actkn && req.cookies.rftkn) {
+    //     res.status(409).cookie('actkn', "newAccessToken");
+    //     next();
+    // } else if (req.cookies.actkn && req.cookies.rftkn) {
+    //     jwt.verify(req.cookies.actkn, process.env.ACTKN_SECRET, async (err, decodedActkn) => {
+    //         if (!err) {
+    //             next();
+    //         } else if (err.message == "jwt expired") {
+    //           console.log("new access token");
+    //         } else {
+    //             console.log("something done fucked up")
+    //         }
+    //     })
+    // } else {
+    //     res.status(401).send({ msg: "Login Required!" });
+    // }
